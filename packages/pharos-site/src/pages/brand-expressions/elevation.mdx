@@ -1,239 +1,398 @@
-import PageSection from '@components/statics/PageSection.tsx';
-import BestPractices from '@components/statics/BestPractices.tsx';
+import ColorSwatches from '../../components/statics/color/ColorSwatches';
+import ColorGradients from '../../components/statics/color/ColorGradients';
+import ColorCombos from '../../components/statics/color/ColorCombos';
+import ColorTextSquares from '../../components/statics/color/ColorTextSquares';
+import CrossOut from '../../components/statics/CrossOut';
+import Grid from '../../components/Grid';
+import { colorImage } from '../../components/statics/color/ColorSwatches.module.css';
+import DosAndDonts from '../../components/statics/DosAndDonts';
+import notebook from '../../../static/images/brand-expressions/color/color-notebook.jpg';
+import illustration from '../../../static/images/brand-expressions/color/color-illustration.jpg';
+import productCard from '../../../static/images/brand-expressions/color/color-brochure.jpg';
+import PageSection from '../../components/statics/PageSection';
 
 <PageSection
-  title="Checkbox"
-  description="Checkboxes present items in a list of one or more options where the user can have several different combinations of selections."
+  title="Elevation"
+  description={`Elevation is used in order to provide visual cues about a components’ depth from a website's surface and its distance in relation to other components. It gives users the signal that a component is being prioritized, emphasized, or requires their focus. This can come from the visual cue of dynamic elevation or static elevation.`}
   isHeader
-  storyBookType="forms"
-></PageSection>
-
-## Examples
-
-```jsx live
-<PharosCheckbox>
-  <span slot="label">I am a checkbox</span>
-</PharosCheckbox>
-```
+>
+  <Grid columns={1} vSpace={0} hSpace={0} bottom={0} justify="center">
+    <div>
+      <div style={{ marginBottom: 'var(--pharos-spacing-2-x)' }}>
+        <ColorSwatches filter={{ key: 'group', value: 'primary' }} noLabel large smallSpacing />
+      </div>
+      <ColorSwatches filter={{ key: 'group', value: 'secondary' }} noLabel large smallSpacing />
+    </div>
+  </Grid>
+</PageSection>
 
 <PageSection
-  topMargin
-  title="Usage"
-  description="The checkbox component is used to provide multiple options the user can select, including all or none. They work independently from each other, therefore checking an additional box does not affect the other selections. Checkboxes are not mutually exclusive."
+  title="Elevation system"
+  description="JSTOR uses an elevation system to assign consistent elevation levels to certain components. By following the guide, usage will uniform across all JSTOR platforms.."
 >
-  <PageSection title="Alignment" subSectionLevel={1}>
-    <p>
-      Labels for checkboxes are placed to the right of the checkbox. If there's a checkbox group,
-      the options can be vertically or horizontally stacked, depending on the use case and UI needs.
-      Vertically stacking the checkboxes is preferable for better readability.
+  <ColorSwatches filter={{ key: 'group', value: 'primary' }} large />
+</PageSection>
+
+<PageSection
+  title="Secondary colors"
+  description="Our secondary colors are Living Coral, Marble Gray, and Black. These should be used with the primary palette to support and enhance those colors."
+>
+  <ColorSwatches filter={{ key: 'group', value: 'secondary' }} large={true} />
+</PageSection>
+
+<PageSection
+  title="Neutral colors"
+  description="Our neutral palette is a set of warm grays. Use these to enhance information especially in the UI, but also ask if gray is even necessary for larger areas. The number next to the color name indicates saturation of the color. A lower number equates to a darker color."
+>
+  <ColorSwatches filter={{ key: 'group', value: 'neutrals' }} colorsPerRow={4} />
+</PageSection>
+
+<PageSection title="Principles" moreTitleSpace>
+  <div>
+    <PharosHeading level="3" preset="4">
+      Consistent
+    </PharosHeading>
+    <p style={{ color: 'var(--pharos-color-text-20)' }}>
+      All elevation is used at the appropriate level assigned to that component. Always follow the recommended shadow pairings. 
     </p>
-  </PageSection>
-  <PageSection title="Placement" subSectionLevel={1}>
-    <p>
-      Checkboxes in JSTOR are often used when faceting results so users can narrow their focus, or
-      on forms. They can be placed within pages or modals.
+  </div>
+  <div>
+    <PharosHeading level="3" preset="4">
+      Suitable
+    </PharosHeading>
+    <p style={{ color: 'var(--pharos-color-text-20)' }}>
+      Dynamic elevation should only change values when suitable for a components behavior.
     </p>
-  </PageSection>
+  </div>
+  <div>
+    <PharosHeading level="3" preset="4">
+      Practical
+    </PharosHeading>
+    <p style={{ color: 'var(--pharos-color-text-20)' }}>
+      Elevation is not solely used for visually enjoyment. It should communicate to users that there is an emphasis or prioritization when it comes to a given component.
+    </p>
+  </div>
+  <div>
+    <PharosHeading level="3" preset="4">
+      Consistent
+    </PharosHeading>
+    <p style={{ color: 'var(--pharos-color-text-20)' }}>
+      Color should be applied throughout a UI consistently and be compatible with the brand it
+      represents.
+    </p>
+  </div>
 </PageSection>
 
 <PageSection title="Best practices">
-  <BestPractices
-    Do={
-      <ul>
-        <li>Use checkboxes when users need to choose "yes" or "no" per option</li>
-        <li>
-          Checkboxes should work independently from each other, unless there are checkboxes to
-          control groups
-        </li>
-        <li>Checkboxes should always include a label</li>
-        <li>Use checkboxes when choices are not mutually exclusive</li>
-        <li>The list of choices should be in a logical order</li>
-      </ul>
-    }
-    Dont={
-      <ul>
-        <li>Don't use checkboxes when there are no choices or a choice is non-binary</li>
-        <li>
-          Don't use where only one choice in a group is allowed. Consider using the radio button
-          component instead
-        </li>
-        <li>Don't make checkboxes affect other checkboxes unless for bulk selection actions</li>
-      </ul>
-    }
-  />
-</PageSection>
-
-<PageSection title="Content guidelines">
-  <PageSection title="Group labels (optional)" subSectionLevel={1}>
-    <ul>
-      <li>
-        For a grouping of checkboxes, you can include a heading to provide even greater clarity.
-        This is especially helpful if there multiple groups on a page, form or experience.
-      </li>
-      <li>Use Sentence case for group labels.</li>
-    </ul>
-  </PageSection>
-  <PageSection title="Labels" subSectionLevel={1}>
-    <ul>
-      <li>
-        Labels are descriptive and succinct. They should provide further clarity for the user.
-      </li>
-      <li>Labels should not end in punctuation.</li>
-      <li>Use Sentence case for labels.</li>
-      <li>
-        Avoid using negative language as it can be counterintuitive. For example, "I agree to the
-        terms" instead of "I don't agree to the terms."
-      </li>
-      <li>
-        Long labels may wrap to a second line, but consider rewording the label if it gets too long.
-      </li>
-      <li>Labels should not be truncated.</li>
-    </ul>
-  </PageSection>
-</PageSection>
-
-<PageSection title="Variants">
-  <PageSection
-    title="onBackground"
-    subSectionLevel={1}
-    description="In cases where the background containing the checkbox will be a dark color or, in cases where the theme of the page/component would be dark, use the onBackground variant checkbox."
-  >
-    <div
-      style={{
-        background: 'var(--pharos-color-marble-gray-10)',
-        padding: 'var(--pharos-spacing-1-x)',
-      }}
-    >
-      <Canvas>
-        <PharosCheckbox onBackground>
-          <span slot="label">Checkbox label</span>
-        </PharosCheckbox>
-      </Canvas>
+  <DosAndDonts>
+    <div style={{ marginBottom: 'var(--pharos-spacing-1-x)' }}>
+      <PharosHeading level="3" preset="2--bold">
+        Use recommended color combinations
+      </PharosHeading>
+      <p style={{ color: 'var(--pharos-color-text-20)' }}>
+        JSTOR Red has prominence and is present in most materials.
+      </p>
     </div>
-  </PageSection>
-</PageSection>
-<PageSection title="States">
-  <PageSection title="Default" subSectionLevel={1}>
-    <p>Indicates that the checkbox is interactable.</p>
-    <Canvas>
-      <PharosCheckbox>
-        <span slot="label">Checkbox label</span>
-      </PharosCheckbox>
-    </Canvas>
-  </PageSection>
-  <PageSection title="Disabled" subSectionLevel={1}>
-    <p>Indicates that the checkbox should not be interactable.</p>
-    <Canvas>
-      <PharosCheckbox disabled>
-        <span slot="label">Checkbox label</span>
-      </PharosCheckbox>
-    </Canvas>
-  </PageSection>
-  <PageSection title="Required" subSectionLevel={1}>
-    <p>
-      Indicates that the user must specify a value for the input before the form can be submitted.
-    </p>
-    <Canvas>
-      <PharosCheckbox required>
-        <span slot="label">Checkbox label</span>
-      </PharosCheckbox>
-    </Canvas>
-  </PageSection>
-  <PageSection title="Error" subSectionLevel={1}>
-    <p>Indicates that an error occurred within the checkbox.</p>
-    <Canvas>
-      <PharosCheckbox
-        required
-        invalidated
-        message="This field is required, please make a selection."
+    <div style={{ marginBottom: 'var(--pharos-spacing-1-x)' }}>
+      <PharosHeading level="4" preset="1--bold">
+        2-color combinations
+      </PharosHeading>
+    </div>
+    <div style={{ marginBottom: 'var(--pharos-spacing-5-x)' }}>
+      <Grid columns={4} vSpace={2} hSpace={3} bottom={0} minContent justifyContent="space-between">
+        <ColorCombos colorNames={['JSTOR red', 'Night blue']} />
+        <ColorCombos colorNames={['JSTOR red', 'Glacier blue']} />
+        <ColorCombos colorNames={['JSTOR red', 'Living coral']} />
+        <ColorCombos colorNames={['JSTOR red', 'Marble gray']} />
+        <ColorCombos colorNames={['JSTOR red', 'Black']} />
+      </Grid>
+    </div>
+    <div style={{ marginBottom: 'var(--pharos-spacing-1-x)' }}>
+      <PharosHeading level="4" preset="1--bold">
+        3-color combinations
+      </PharosHeading>
+    </div>
+    <div>
+      <Grid columns={3} vSpace={2} hSpace={3} bottom={0} minContent>
+        <ColorCombos colorNames={['JSTOR red', 'Night blue', 'Living coral']} />
+        <ColorCombos colorNames={['JSTOR red', 'Black', 'White']} />
+        <ColorCombos colorNames={['JSTOR red', 'Glacier blue', 'Marble gray']} />
+      </Grid>
+    </div>
+  </DosAndDonts>
+  <DosAndDonts Dont>
+    <div style={{ marginBottom: 'var(--pharos-spacing-one-and-a-half-x)' }}>
+      <PharosHeading level="3" preset="2--bold">
+        Don't use non-complimentary color combinations
+      </PharosHeading>
+      <p style={{ color: 'var(--pharos-color-text-20)' }}>
+        These colors do not compliment each other well; therefore, do not pair them in your
+        experiences.
+      </p>
+    </div>
+    <div style={{ marginBottom: 'var(--pharos-spacing-three-and-a-half-x)' }}>
+      <Grid columns={3} vSpace={2} hSpace={3} bottom={0} align="start">
+        <ColorCombos colorNames={['Black', 'Living coral']} crossout />
+        <ColorCombos colorNames={['Glacier blue', 'Living coral']} crossout />
+        <ColorCombos colorNames={['JSTOR red', 'White', 'Night blue']} crossout />
+      </Grid>
+    </div>
+    <div style={{ marginBottom: 'var(--pharos-spacing-one-and-a-half-x)' }}>
+      <PharosHeading level="3" preset="2--bold">
+        Don't alter JSTOR Red
+      </PharosHeading>
+      <p style={{ color: 'var(--pharos-color-text-20)' }}>
+        Please do not darken or lighten JSTOR Red. It should always be used in its true color.
+      </p>
+    </div>
+    <div style={{ marginBottom: 'var(--pharos-spacing-three-and-a-half-x)' }}>
+      <Grid
+        columns={5}
+        vSpace={2}
+        hSpace={1.5}
+        bottom={0}
+        minContent
+        justifyContent="space-between"
       >
-        <span slot="label">Checkbox label</span>
-      </PharosCheckbox>
-    </Canvas>
-  </PageSection>
-  <PageSection title="Checked" subSectionLevel={1}>
-    <p>Indicates that the checkbox is selected and will submit a checked value of true.</p>
-    <Canvas>
-      <PharosCheckbox checked>
-        <span slot="label">Checkbox label</span>
-      </PharosCheckbox>
-    </Canvas>
-  </PageSection>
-  <PageSection title="Unchecked" subSectionLevel={1}>
-    <p>Indicates that the checkbox is not selected and will submit an unchecked value of false.</p>
-    <Canvas>
-      <PharosCheckbox>
-        <span slot="label">Checkbox label</span>
-      </PharosCheckbox>
-    </Canvas>
-  </PageSection>
-  <PageSection title="Indeterminate" subSectionLevel={1}>
-    <p>A state that serves a visual purpose while masking the actual value of the checkbox.</p>
-    <Canvas>
-      <PharosCheckbox indeterminate checked>
-        <span slot="label">Checkbox label</span>
-      </PharosCheckbox>
-    </Canvas>
-  </PageSection>
+        <CrossOut>
+          <div
+            style={{
+              backgroundColor: '#4D0000',
+              height: 'var(--pharos-spacing-7-x)',
+              width: 'var(--pharos-spacing-7-x)',
+              borderRadius: '50%',
+            }}
+          />
+        </CrossOut>
+        <CrossOut>
+          <div
+            style={{
+              backgroundColor: '#660000',
+              height: 'var(--pharos-spacing-7-x)',
+              width: 'var(--pharos-spacing-7-x)',
+              borderRadius: '50%',
+            }}
+          />
+        </CrossOut>
+        <Grid columns={1} justify="center" minContent>
+          <div
+            style={{
+              backgroundColor: '#990000',
+              height: 'var(--pharos-spacing-7-x)',
+              width: 'var(--pharos-spacing-7-x)',
+              borderRadius: '50%',
+            }}
+          />
+          <div>JSTOR Red</div>
+        </Grid>
+        <CrossOut>
+          <div
+            style={{
+              backgroundColor: '#CC8080',
+              height: 'var(--pharos-spacing-7-x)',
+              width: 'var(--pharos-spacing-7-x)',
+              borderRadius: '50%',
+            }}
+          />
+        </CrossOut>
+        <CrossOut>
+          <div
+            style={{
+              backgroundColor: '#E5BFBF',
+              height: 'var(--pharos-spacing-7-x)',
+              width: 'var(--pharos-spacing-7-x)',
+              borderRadius: '50%',
+            }}
+          />
+        </CrossOut>
+      </Grid>
+    </div>
+    <div style={{ marginBottom: 'var(--pharos-spacing-one-and-a-half-x)' }}>
+      <PharosHeading level="3" preset="2--bold">
+        Don't use inaccessible colors
+      </PharosHeading>
+      <p>
+        Don't use inaccessible versions in digital materials such as graphs, presentation, social
+        graphics and emails.
+      </p>
+    </div>
+    <div>
+      <Grid
+        columns={5}
+        vSpace={2}
+        hSpace={3.5}
+        bottom={0}
+        minContent
+        justifyContent="space-between"
+      >
+        <CrossOut>
+          <ColorTextSquares fgName="Marble gray" bgName="White" />
+        </CrossOut>
+        <CrossOut>
+          <ColorTextSquares fgName="Glacier blue" bgName="White" />
+        </CrossOut>
+        <CrossOut>
+          <ColorTextSquares fgName="Living coral" bgName="White" />
+        </CrossOut>
+        <CrossOut>
+          <ColorTextSquares fgName="White" bgName="Glacier blue" />
+        </CrossOut>
+        <CrossOut>
+          <ColorTextSquares fgName="White" bgName="Living coral" />
+        </CrossOut>
+      </Grid>
+    </div>
+  </DosAndDonts>
 </PageSection>
 
-<PageSection title="Accessibility">
-  <PageSection subSectionLevel={1} title="Relevant WCAG guidelines">
-    <ul>
-      <li>
-        <PharosLink href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value">
-          4.1.2 Name, Role, Value A
-        </PharosLink>
-      </li>
-    </ul>
-  </PageSection>
-  <PageSection subSectionLevel={1} title="Importance">
-    Checkboxes help users to understand the relationship between selections in a form element or
-    filter. A checkbox grouping also will typically allow users to select more than one item in the
-    grouping.
-  </PageSection>
-  <PageSection subSectionLevel={1} title="Code expectations">
-    <ul>
-      <li> The checkbox has the role "checkbox". </li>
-      <li>
-        When the checkbox is selected, the ARIA state is set to <code>aria-checked="true"</code> and
-        when it is deselected <code>aria-checked="false"</code>.
-      </li>
-      <li>
-        Provide a <code>fieldset</code> that surrounds the entire grouping of checkboxes. Also,
-        provide a <code>legend</code>, which is a description for the grouping.{' '}
-        <PharosLink
-          href="https://www.w3.org/WAI/tutorials/forms/grouping/#checkboxes"
-          target="_blank"
-        >
-          Here's an example.
-        </PharosLink>
-      </li>
-      <li>
-        Some assistive technology reads the legend text for each fieldset, so it should be brief and
-        descriptive. This helps someone using assistive technology to understand the question they
-        are answering with the group of checkboxes
-      </li>
-    </ul>
-  </PageSection>
-  <PageSection subSectionLevel={1} title="Expected actions">
-    <PageSection subSectionLevel={2} title="Screen reader">
-      <ul>
-        <li>Reads: "item name, state (checked or unchecked), checkbox, fieldset name, group" </li>
-      </ul>
-    </PageSection>
-    <PageSection subSectionLevel={2} title="Keyboard">
-      <ul>
-        <li>
-          The <kbd>Space</kbd> key can be used to select and deselect each checkbox when it has
-          focus.
-        </li>
-        <li>
-          Users can navigate between checkbox inputs by pressing <kbd>Tab</kbd> or <kbd>Shift</kbd>-
-          <kbd>Tab</kbd>.
-        </li>
-        <li>Checkboxes identified as `disabled` attribute are ignored in the tab order.</li>
-      </ul>
-    </PageSection>
-  </PageSection>
+<PageSection
+  title="Gradients"
+  description="Gradients provide depth and create visual interest helping move users through a design. Gradients should be used as subtle details in the corners of materials."
+>
+  <div style={{ marginTop: '4rem', marginBottom: '4rem' }}>
+    <ColorGradients
+      gradients={[
+        { first: 'JSTOR red', second: ['Living coral', 'base'] },
+        { first: ['Living coral', 'base'], second: 'JSTOR red' },
+        { first: ['Night blue', 'base'], second: ['Glacier blue', 'base'] },
+        { first: ['Glacier blue', 'base'], second: ['Night blue', 'base'] },
+      ]}
+    />
+    <ColorGradients
+      gradients={[
+        { first: ['Living coral', 'base'], second: ['Night blue', 'base'] },
+        { first: ['Night blue', 'base'], second: ['Living coral', 'base'] },
+        { first: ['Night blue', 'base'], second: 'Black' },
+        { first: 'Black', second: ['Night blue', 'base'] },
+      ]}
+    />
+    <ColorGradients
+      gradients={[
+        { first: ['Marble gray', 'base'], second: 'White' },
+        { first: 'White', second: ['Marble gray', 'base'] },
+        { first: 'Black', second: ['Marble gray', 'base'] },
+        { first: ['Marble gray', 'base'], second: 'Black' },
+      ]}
+    />
+  </div>
+</PageSection>
+
+<PageSection
+  title="Tints"
+  description="Lighter and darker versions of Night Blue, Glacier Blue and Living Coral should be used to help differentiate information in graphs and data visualizations. "
+>
+  <Grid columns={4} vSpace={2} hSpace={5} bottom={2} align="start" minContent>
+    <ColorSwatches
+      filter={{ key: 'name', value: 'PharosColorNightBlueBase' }}
+      colorsPerRow={1}
+      hexOnlyLabel
+    />
+    <ColorSwatches
+      filter={{ key: 'name', value: 'PharosColorNightBlue15' }}
+      colorsPerRow={1}
+      hexOnlyLabel
+    />
+    <ColorSwatches
+      filter={{ key: 'name', value: 'PharosColorNightBlue60' }}
+      colorsPerRow={1}
+      hexOnlyLabel
+    />
+  </Grid>
+  <Grid columns={4} vSpace={2} hSpace={5} bottom={2} align="start" minContent>
+    <ColorSwatches
+      filter={{ key: 'name', value: 'PharosColorGlacierBlueBase' }}
+      colorsPerRow={1}
+      hexOnlyLabel
+    />
+    <ColorSwatches
+      filter={{ key: 'name', value: 'PharosColorGlacierBlue70' }}
+      colorsPerRow={1}
+      hexOnlyLabel
+    />
+    <ColorSwatches
+      filter={{ key: 'name', value: 'PharosColorGlacierBlue80' }}
+      colorsPerRow={1}
+      hexOnlyLabel
+    />
+  </Grid>
+  <Grid columns={4} vSpace={2} hSpace={5} bottom={0} align="start" minContent>
+    <ColorSwatches
+      filter={{ key: 'name', value: 'PharosColorLivingCoralBase' }}
+      colorsPerRow={1}
+      hexOnlyLabel
+    />
+    <ColorSwatches
+      filter={{ key: 'name', value: 'PharosColorLivingCoral50' }}
+      colorsPerRow={1}
+      hexOnlyLabel
+    />
+    <ColorSwatches
+      filter={{ key: 'name', value: 'PharosColorLivingCoral80' }}
+      colorsPerRow={1}
+      hexOnlyLabel
+    />
+    <ColorSwatches
+      filter={{ key: 'name', value: 'PharosColorLivingCoral90' }}
+      colorsPerRow={1}
+      hexOnlyLabel
+    />
+  </Grid>
+</PageSection>
+
+<PageSection title="Accessibility" description="Colors have been tested for on screen contrast.">
+  <div style={{ marginBottom: 'var(--pharos-spacing-5-x)' }}>
+    <Grid
+      columns={4}
+      vSpace={2}
+      hSpace={3}
+      bottom={0}
+      align="start"
+      minContent
+      justifyContent="space-between"
+    >
+      <ColorTextSquares bgName="White" fgName="JSTOR red" showLabel />
+      <ColorTextSquares bgName="White" fgName="Night blue" showLabel />
+      <ColorTextSquares bgName="White" fgName="Glacier blue 40" showLabel />
+      <ColorTextSquares bgName="White" fgName="Living coral 53" showLabel />
+      <ColorTextSquares bgName="JSTOR red" fgName="White" showLabel />
+      <ColorTextSquares bgName="Night blue" fgName="White" showLabel />
+      <ColorTextSquares bgName="Glacier blue" fgName="Black" showLabel />
+      <ColorTextSquares bgName="Living coral" fgName="Black" showLabel />
+      <ColorTextSquares bgName="Black" fgName="Glacier blue" showLabel />
+      <ColorTextSquares bgName="Black" fgName="Marble gray" showLabel />
+    </Grid>
+  </div>
+  <PharosHeading level="4" preset="2">
+    Color test tools
+  </PharosHeading>
+  <div style={{ marginBottom: 'var(--pharos-spacing-2-x)' }}>
+    <PharosLink href="https://color.review/" target="_blank">
+      Color Review
+    </PharosLink>
+    <PharosIcon
+      name="link-external"
+      style={{ marginRight: 'var(--pharos-spacing-1-x)' }}
+    ></PharosIcon>
+    <PharosLink href="https://webaim.org/resources/contrastchecker/" target="_blank">
+      WebAIM Color Contrast Checker
+    </PharosLink>
+    <PharosIcon name="link-external"></PharosIcon>
+  </div>
+</PageSection>
+
+<PageSection title="Colors in action">
+  <Grid columns={3} vSpace={2} hSpace={0} bottom={0} align="start">
+    <div>
+      <div style={{ marginBottom: 'var(--pharos-spacing-1-x)' }}>Product Card</div>
+      <img src={productCard} alt="Product card" width="227" height="350" className={colorImage} />
+    </div>
+    <div>
+      <div style={{ marginBottom: 'var(--pharos-spacing-1-x)' }}>Illustration</div>
+      <img src={illustration} alt="Illustration" width="300" height="450" className={colorImage} />
+    </div>
+    <div>
+      <div style={{ marginBottom: 'var(--pharos-spacing-1-x)' }}>Notebook</div>
+      <img src={notebook} alt="Notebook" width="215" height="320" className={colorImage} />
+    </div>
+  </Grid>
 </PageSection>
